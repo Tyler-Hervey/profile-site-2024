@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro"
+import "../styles/tailwind-compiled.css"
+import { Image } from "astro:assets"
+import profilePicture from "../assets/tyler_profile_picture.jpeg"
+import xLogo from "../assets/x-white.png"
+import githubLogo from "../assets/github-mark-white.png"
+import linkedinLogo from "../assets/ln-white-96.png"
+---
+
+<Layout title="Welcome to Astro.">
+    <main
+        class="text-white h-[100vh] flex flex-col justify-center items-center"
+    >
+        <div class="flex justify-center">
+            <div class="flex flex-col items-center">
+                <Image
+                    src={profilePicture}
+                    alt="Tyler Hervey"
+                    class="rounded-full w-48 h-48 mb-4"
+                />
+                <h1 class="text-5xl mb-4">Tyler Hervey</h1>
+                <p class="mb-4 text-lg">
+                    Software Developer in Nashville, TN. Currently focused on
+                    managing real world assets on-chain.
+                </p>
+                <div class="flex justify-center">
+                    <a
+                        href="https://github.com/Tyler-Hervey"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Image
+                            src={githubLogo}
+                            alt="Tyler Hervey github profile link"
+                            class="w-16 m-8"
+                        /></a
+                    >
+                    <a
+                        href="https://twitter.com/Tydoo711"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Image
+                            src={xLogo}
+                            alt="Tyler Hervey X/Twitter profile link"
+                            class="w-14 m-8"
+                        /></a
+                    >
+                    <a
+                        href="https://www.linkedin.com/in/tyler-hervey/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Image
+                            src={linkedinLogo}
+                            alt="Tyler Hervey"
+                            class="w-16 m-8"
+                        /></a
+                    >
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>

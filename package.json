@@ -1,0 +1,23 @@
+{
+  "name": "ossified-orbit",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "watch:css": "tailwindcss -i ./src/styles/index.css -o ./src/styles/tailwind-compiled.css -w"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.3.1",
+    "@astrojs/netlify": "^3.1.1",
+    "@astrojs/tailwind": "^5.0.3",
+    "astro": "^4.0.3",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
