@@ -1,0 +1,11 @@
+---
+// Decorative arcade starfield that fills its positioned parent.
+---
+
+<canvas data-starfield aria-hidden="true" class="pixelated absolute left-0 top-0 block"></canvas>
+
+<script>
+  import { startStarfield } from '../scripts/starfield'
+
+  document.querySelectorAll<HTMLCanvasElement>('canvas[data-starfield]').forEach(startStarfield)
+</script>

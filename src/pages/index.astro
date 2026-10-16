@@ -1,75 +1,93 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import "../styles/tailwind-compiled.css"
-import { Image } from "astro:assets"
-import profilePicture from "../assets/tyler_profile_picture.jpeg"
-import xLogo from "../assets/x-white.png"
-import githubLogo from "../assets/github-mark-white.png"
-import linkedinLogo from "../assets/ln-white-96.png"
+import Layout from '../layouts/Layout.astro'
+import Starfield from '../components/Starfield.astro'
+
+const elsewhereLinks = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tyler-hervey/' },
+  { label: 'GitHub', href: 'https://github.com/Tyler-Hervey' },
+  { label: 'X', href: 'https://x.com/Tydoo711' },
+]
+
+const currentYear = new Date().getFullYear()
 ---
 
-<Layout title="Welcome to Astro.">
-    <main
-        class="text-white h-[100vh] flex flex-col justify-center items-center"
-    >
-        <div class="flex justify-center">
-            <div class="flex flex-col items-center">
-                <Image
-                    src={profilePicture}
-                    loading="eager"
-                    alt="Tyler Hervey"
-                    class="rounded-full w-48 h-48 mb-4"
-                />
-                <h1 class="text-5xl mb-4">Tyler Hervey</h1>
-                <p class="mb-4 text-lg text-center">
-                    Software Developer in Nashville, TN. Currently focused on
-                    managing real world assets on-chain.
-                </p>
-                <div class="flex justify-center">
-                    <a
-                        href="https://github.com/Tyler-Hervey"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Image
-                            src={githubLogo}
-                            loading="eager"
-                            alt="Tyler Hervey github profile link"
-                            height="56"
-                            width="56"
-                            class="m-8"
-                        /></a
-                    >
-                    <a
-                        href="https://twitter.com/Tydoo711"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Image
-                            src={xLogo}
-                            loading="eager"
-                            alt="Tyler Hervey X/Twitter profile link"
-                            height="56"
-                            width="56"
-                            class="m-8"
-                        /></a
-                    >
-                    <a
-                        href="https://www.linkedin.com/in/tyler-hervey/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Image
-                            src={linkedinLogo}
-                            loading="eager"
-                            alt="Tyler Hervey"
-                            height="56"
-                            width="56"
-                            class="m-8"
-                        /></a
-                    >
-                </div>
-            </div>
+<Layout
+  title="Tyler Hervey"
+  description="Software engineer in Nashville, TN, building Glass, loan management software for private lenders."
+>
+  <header class="relative h-[260px] overflow-hidden sm:h-[340px]">
+    <Starfield />
+  </header>
+
+  <main class="relative mx-auto max-w-2xl px-4 pb-16 sm:px-6">
+    <div class="pixel-corners relative z-10 -mt-[106px] w-fit bg-accent p-[6px] [--notch:6px]">
+      <img
+        src="/tyler-hervey.png"
+        width="200"
+        height="200"
+        alt="Tyler Hervey"
+        class="dithered-portrait block h-[200px] w-[200px]"
+      />
+    </div>
+
+    <h1 class="mt-8 font-pixel text-2xl leading-snug sm:text-[28px]">Tyler Hervey</h1>
+    <p class="mt-3 text-haze">Software engineer · Nashville, TN</p>
+
+    <p class="mt-6 text-lg leading-relaxed">
+      I build <a href="https://glassloans.io" class="text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent">Glass</a>,
+      loan management software for private lenders. When I'm away from the keyboard, I'm training Brazilian Jiu Jitsu.
+    </p>
+
+    <section aria-labelledby="building-heading" class="mt-14">
+      <h2 id="building-heading" class="font-pixel text-[11px] uppercase tracking-wider text-accent">Building</h2>
+      <a
+        href="https://glassloans.io"
+        class="pixel-corners group mt-4 block bg-accent/50 p-[3px] transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:outline-none"
+      >
+        <div class="bg-ink p-5 sm:p-6">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="text-lg font-semibold">Glass Software</h3>
+            <span class="text-sm text-haze transition-colors group-hover:text-accent">glassloans.io ↗</span>
+          </div>
+          <p class="mt-3 leading-relaxed text-paper/85">
+            An all-in-one loan servicing and origination platform for private lenders, hard money lenders and fund
+            managers. Glass handles the whole life of a loan, from payment schedules, draws and extensions to payoffs,
+            investor distributions, documents and reporting. Lenders across the country run their portfolios on it.
+          </p>
         </div>
-    </main>
+      </a>
+    </section>
+
+    <section aria-labelledby="training-heading" class="mt-12">
+      <h2 id="training-heading" class="font-pixel text-[11px] uppercase tracking-wider text-accent">Training</h2>
+      <div class="pixel-corners mt-4 bg-accent/50 p-[3px]">
+        <div class="bg-ink p-5 sm:p-6">
+          <h3 class="text-lg font-semibold">Brazilian Jiu Jitsu</h3>
+          <p class="mt-3 leading-relaxed text-paper/85">Outside of Glass, I train Brazilian Jiu Jitsu.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="elsewhere-heading" class="mt-12">
+      <h2 id="elsewhere-heading" class="font-pixel text-[11px] uppercase tracking-wider text-accent">Elsewhere</h2>
+      <ul class="mt-4 flex flex-wrap gap-3">
+        {
+          elsewhereLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pixel-corners block bg-accent/50 p-[3px] transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:outline-none"
+              >
+                <span class="block bg-ink px-4 py-2 text-sm font-medium">{link.label} ↗</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <footer class="mt-16 font-pixel text-[10px] text-haze/70">© {currentYear} Tyler Hervey</footer>
+  </main>
 </Layout>
